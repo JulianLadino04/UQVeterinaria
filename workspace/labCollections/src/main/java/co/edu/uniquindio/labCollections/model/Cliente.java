@@ -11,5 +11,9 @@ import lombok.*;
 public class Cliente {
     private String nombre;
     private String direccion;
+    private String nIdentificacion;
+    private CarritoCompras carritoCompras;
+    
+    
 
 }
