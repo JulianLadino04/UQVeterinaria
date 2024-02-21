@@ -9,6 +9,9 @@ import java.util.*;
 
 @Data
 @NoArgsConstructor
+/**
+ * Es la clase que se encarga de administrar todas las demas, posee los CRUD de las diferentes entidades.
+ */
 public class Tienda {
 
     private String nombre;
@@ -30,6 +33,8 @@ public class Tienda {
         this.lstCarritoCompras = new HashSet<>();
         this.lstInventario = new TreeSet<>();
     }
+
+
 
 
 }
