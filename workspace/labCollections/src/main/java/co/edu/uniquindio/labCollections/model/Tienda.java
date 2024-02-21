@@ -18,6 +18,7 @@ public class Tienda {
     private Map<String, Cliente> lstClientes;
     private List<Venta> lstVentas;
     private Collection<CarritoCompras> lstCarritoCompras;
+    private Set<Producto> lstInventario;
 
     public Tienda(String nombre, String direccion, String nit) {
         this.nombre = nombre;
@@ -27,6 +28,7 @@ public class Tienda {
         this.lstClientes = new HashMap<>();
         this.lstVentas = new ArrayList<>();
         this.lstCarritoCompras = new HashSet<>();
+        this.lstInventario = new TreeSet<>();
     }
 
 
