@@ -3,7 +3,7 @@ module co.edu.uniquindio {
     requires javafx.fxml;
     requires lombok;
 
-    opens co.edu.uniquindio to javafx.fxml;
+    opens co.edu.uniquindio.labCollections.controllers to javafx.fxml;
     exports co.edu.uniquindio;
 }
 
