@@ -82,6 +82,6 @@ public class Tienda {
         return "C" + proximoCodigoCarrito++;
     }
     private String generarCodigoProducto() {
-        return "C" + proximoCodigoProducto++;
+        return "P" + proximoCodigoProducto++;
     }
 }
