@@ -63,7 +63,7 @@ public class menuController {
 
     @FXML
     void irVenderEvent(MouseEvent event) {
-
+        cambiarVentana("vender");
     }
 
     @FXML
