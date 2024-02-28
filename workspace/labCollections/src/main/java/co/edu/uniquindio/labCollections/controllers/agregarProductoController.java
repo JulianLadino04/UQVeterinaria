@@ -2,6 +2,7 @@ package co.edu.uniquindio.labCollections.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,10 +17,10 @@ public class agregarProductoController {
     private URL location;
 
     @FXML
-    private TextField txtCantidad;
+    private Button btnCerrar;
 
     @FXML
-    private TextField txtCodigo;
+    private TextField txtCantidad;
 
     @FXML
     private TextField txtNombre;
@@ -41,7 +42,8 @@ public class agregarProductoController {
     }
 
     @FXML
-    void codigoEvent(ActionEvent event) {
+    void cerrarEvent(ActionEvent event) {
+    	menuController.getInstancia().setRight(null);
 
     }
 
@@ -57,7 +59,6 @@ public class agregarProductoController {
 
     @FXML
     void initialize() {
-
 
     }
 }

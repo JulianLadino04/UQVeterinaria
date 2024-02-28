@@ -48,6 +48,7 @@ public class clientesController {
 
     @FXML
     void irAgregarClienteEvent(ActionEvent event) {
+    	menuController.getInstancia().cambiarRight("agregarCliente");
 
     }
 

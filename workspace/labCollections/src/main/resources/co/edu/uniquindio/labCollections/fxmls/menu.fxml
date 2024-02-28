@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" styleClass="fondo" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.labCollections.controllers.menuController">
+<BorderPane fx:id="principalPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" styleClass="fondo" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.labCollections.controllers.menuController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="80.0" style="-fx-background-color: #0D8ECB; -fx-background-radius: 40;" stylesheets="@../styles/fondo.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -154,4 +154,7 @@
          </bottom>
       </BorderPane>
    </top>
+   <right>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2); -fx-border-radius: 40;" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>

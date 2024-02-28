@@ -16,6 +16,9 @@ public class agregarClienteController {
     private URL location;
 
     @FXML
+    private Button btnCerrar;
+
+    @FXML
     private TextField txtIdentificacion;
 
     @FXML
@@ -29,6 +32,12 @@ public class agregarClienteController {
 
     @FXML
     void agregarClienteEvent(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cerrarEvent(ActionEvent event) {
+    	menuController.getInstancia().setRight(null);
 
     }
 
@@ -49,7 +58,6 @@ public class agregarClienteController {
 
     @FXML
     void initialize() {
-
 
     }
 }

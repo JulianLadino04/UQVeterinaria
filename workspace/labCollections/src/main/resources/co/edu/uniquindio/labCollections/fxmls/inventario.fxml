@@ -16,7 +16,7 @@
    <children>
       <HBox alignment="CENTER_LEFT">
          <children>
-            <Label fx:id="lblTitle" styleClass="titulo" stylesheets="@../styles/texto.css" text="INVENTARIO" />
+            <Label fx:id="lblTitle" styleClass="titulo" stylesheets="@../styles/texto.css" text="GESTIONAR INVENTARIO" />
          </children>
          <padding>
             <Insets bottom="5.0" />
