@@ -31,10 +31,18 @@ public class menuController {
     private VBox btnVender;
 
     @FXML
+    private BorderPane centerPane;
+
+    @FXML
     private Button btnCarro;
 
     @FXML
-    private BorderPane centerPane;
+    private Button btnAyuda;
+
+    @FXML
+    void irAyudaEvent(ActionEvent event) {
+
+    }
 
     @FXML
     void irCarroEvent(ActionEvent event) {
@@ -43,6 +51,7 @@ public class menuController {
 
     @FXML
     void irClientesEvent(MouseEvent event) {
+    	cambiarVentana("clientes");
 
     }
 
@@ -62,16 +71,17 @@ public class menuController {
 
     }
     
-    private void cambiarVentana(String fxmlname) {
-		try {
-			Node nodo = App.loadFXML(fxmlname);
-			setCenter(nodo);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void setCenter(Node node) {
-		centerPane.setCenter(node);
-	}
+    private void cambiarVentana(String fxmlname) { 		
+    	try { 			
+    		Node nodo = App.loadFXML(fxmlname); 			
+    		setCenter(nodo); 		
+    		} 
+    	catch (IOException e) { 			
+    		e.printStackTrace(); 		
+    		} 	
+    	}  	
+    
+    public void setCenter(Node node){ 		
+    	centerPane.setCenter(node); 	
+    	}
 }

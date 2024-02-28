@@ -3,7 +3,7 @@ package co.edu.uniquindio.labCollections.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import co.edu.uniquindio.labCollections.model.Producto;
+import co.edu.uniquindio.labCollections.model.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,7 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class inventarioController {
+public class clientesController {
 
     @FXML
     private ResourceBundle resources;
@@ -27,22 +27,19 @@ public class inventarioController {
     private TextField txtBuscar;
 
     @FXML
-    private Button btnAgregarProducto;
+    private Button btnAgregarCliente;
 
     @FXML
-    private TableView<Producto> tablaInventario;
+    private TableView<Cliente> tablaClientes;
 
     @FXML
-    private TableColumn<Producto, String> colCodigo;
+    private TableColumn<Cliente, String> colNombre;
 
     @FXML
-    private TableColumn<Producto, String> colNombre;
+    private TableColumn<Cliente, String> colIdentificacion;
 
     @FXML
-    private TableColumn<Producto, String> colPrecio;
-
-    @FXML
-    private TableColumn<Producto, String> colCantidad;
+    private TableColumn<Cliente, String> colDireccion;
 
     @FXML
     void buscarEvent(ActionEvent event) {
@@ -50,7 +47,7 @@ public class inventarioController {
     }
 
     @FXML
-    void irAgregarProductoEvent(ActionEvent event) {
+    void irAgregarClienteEvent(ActionEvent event) {
 
     }
 

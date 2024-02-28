@@ -4,13 +4,28 @@
     -fx-text-fill: white; /* Color del texto */
 	-fx-font-size: 1.2em;
     -fx-padding: 0 1em; /* Relleno interno */
-    -fx-border-radius: 0.5em; /* Radio de borde */
+    -fx-border-radius: 1em; /* Radio de borde */
    	-fx-border-width: 10px;
     -fx-font-weight: bold;
     -fx-cursor: hand;
 	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
 	-fx-pref-height: 30px;
 	-fx-pref-width: 125px;
+	-fx-background-radius: 15px;
+}
+
+.botonLibre {
+    -fx-text-fill: white; /* Color del texto */
+	-fx-font-size: 1.2em;
+    -fx-padding: 0 1em; /* Relleno interno */
+    -fx-border-radius: 5em; /* Radio de borde */
+   	-fx-border-width: 10px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+	-fx-pref-height: 39px;
+	-fx-pref-width: 125px;
+	-fx-background-radius: 15px;
 }
 
 /* Estilo al pasar el mouse sobre el botón */
