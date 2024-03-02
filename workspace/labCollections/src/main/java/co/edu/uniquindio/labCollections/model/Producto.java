@@ -1,12 +1,13 @@
 package co.edu.uniquindio.labCollections.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Modela un producto y tiene un código único, un nombre, un precio y una
  * cantidad en inventario.
  */
-public class Producto implements Comparable<Producto> {
+public class Producto implements Comparable<Producto>, Serializable {
 
 	private Integer cantidad;
 	private Long codigo;
