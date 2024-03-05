@@ -1,12 +1,14 @@
 package co.edu.uniquindio.labCollections.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Funciona como una clase intermedia o conectora entre Venta y Producto.
  * Contiene la cantidad del producto y un subTotal.
  */
-public class DetalleVenta {
+public class DetalleVenta implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Integer cantidad;
 	private Producto producto;
 	private Double subTotal;

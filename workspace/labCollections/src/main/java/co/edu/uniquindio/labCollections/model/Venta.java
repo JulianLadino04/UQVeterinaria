@@ -1,5 +1,6 @@
 package co.edu.uniquindio.labCollections.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,8 @@ import java.util.Objects;
  * unico, una fecha de creacion, un precio total y una lista de detalles de
  * venta.
  */
-public class Venta {
+public class Venta implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String codigo;
 	private LocalDate fecha;
 	private Double total;

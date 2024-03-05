@@ -1,5 +1,6 @@
 package co.edu.uniquindio.labCollections.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,8 @@ import java.util.Objects;
  * contiene un nombre, direccion, numero de identificacion y un carrito de
  * comprar para almacenar los productos previos a su compra.
  */
-public class Cliente {
+public class Cliente implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String direccion;
 	private String nIdentificacion;

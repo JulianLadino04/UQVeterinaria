@@ -1,7 +1,6 @@
 package co.edu.uniquindio.labCollections.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -22,7 +21,7 @@ public class Tienda {
 	private Map<String, Producto> lstProducto;
 	private Map<String, Cliente> lstClientes;
 	private List<Venta> lstVentas;
-	private Collection<CarritoCompras> lstCarritoCompras;
+	private Set<CarritoCompras> lstCarritoCompras;
 	private Set<Producto> lstInventario;
 	private int proximoCodigoCarrito = 1;
 	private int proximoCodigoProducto = 1;
@@ -91,11 +90,11 @@ public class Tienda {
 		this.lstVentas = lstVentas;
 	}
 
-	public Collection<CarritoCompras> getLstCarritoCompras() {
+	public Set<CarritoCompras> getLstCarritoCompras() {
 		return lstCarritoCompras;
 	}
 
-	public void setLstCarritoCompras(Collection<CarritoCompras> lstCarritoCompras) {
+	public void setLstCarritoCompras(Set<CarritoCompras> lstCarritoCompras) {
 		this.lstCarritoCompras = lstCarritoCompras;
 	}
 
@@ -123,8 +122,8 @@ public class Tienda {
 		this.proximoCodigoProducto = proximoCodigoProducto;
 	}
 
-	public void agregarCliente(String nit, Cliente cliente) {
-		lstClientes.put(nit, cliente);
+	public void agregarCliente(Cliente cliente) {
+		lstClientes.put(cliente.getnIdentificacion(), cliente);
 	}
 
 	public void agregarVenta(Venta venta) {
@@ -179,6 +178,18 @@ public class Tienda {
 		String codigoCarrito = generarCodigoCarrito();
 		lstCarritoCompras.add(new CarritoCompras(codigoCarrito));
 		return codigoCarrito;
+	}
+	
+	public List<Cliente> filtrarClientesPorCedula(String identificacion) {
+		return lstClientes.values().stream().filter(c -> c.getnIdentificacion().equals(identificacion)).toList();
+	}
+
+	public List<Producto> filtrarInventarioPorCodigo(Long codigo) {
+		return lstInventario.stream().filter(p -> p.getCodigo().equals(codigo)).toList();
+	}
+
+	public List<Producto> filtrarProductosPorCodigo(Long codigo) {
+		return lstProducto.values().stream().filter(p -> p.getCodigo().equals(codigo)).toList();
 	}
 
 }

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.labCollections.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -9,13 +10,13 @@ import java.util.Set;
  * comprar antes de realizar la compra, contiene un codigo y una lista de
  * productos.
  */
-public class CarritoCompras {
+public class CarritoCompras implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String codigo;
 	private Set<String> lstProductos;
 
 	public CarritoCompras() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public CarritoCompras(String codigo) {
