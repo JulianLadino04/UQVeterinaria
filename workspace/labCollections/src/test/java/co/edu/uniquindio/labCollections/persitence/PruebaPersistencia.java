@@ -1,17 +1,30 @@
 package co.edu.uniquindio.labCollections.persitence;
 
-import co.edu.uniquindio.labCollections.utils.PersistenceService;
-import co.edu.uniquindio.labCollections.utils.PersistenceServiceJSON;
+import java.util.UUID;
 
 public class PruebaPersistencia {
 
 	public static void main(String[] args) {
-		PersistenceService persistor = new PersistenceServiceJSON();
-		Persona persona = new Persona("Juan", 20, false);
-		try {
-			persistor.serialize(persona);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		PersistenceService persistor = new PersistenceServiceBinary();
+//		Persona persona = new Persona("Juan", 20, false);
+//		Set<Persona> setsito = new HashSet<>();
+//		setsito.add(persona);
+//		
+////		try {
+////			persistor.serialize(setsito);
+////		} catch (Exception e) {
+////			e.printStackTrace();
+////		}
+//		try {
+//			Set<Persona> setRetornado = persistor.deserialize("", HashSet.class);
+//			System.out.println(setRetornado.toString());
+////			Persona retornada = persistor.deserialize(Persona.class);
+////			System.out.println(retornada);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		String nit = UUID.randomUUID().toString();
+		System.out.println(nit);
 	}
 }

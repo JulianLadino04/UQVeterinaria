@@ -12,11 +12,11 @@ import java.util.Set;
  */
 public class CarritoCompras implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String codigo;
 	private Set<String> lstProductos;
 
 	public CarritoCompras() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public CarritoCompras(String codigo) {

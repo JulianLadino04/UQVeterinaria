@@ -9,6 +9,7 @@ import java.util.Objects;
  * comprar para almacenar los productos previos a su compra.
  */
 public class Cliente implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String direccion;
 	private String nIdentificacion;

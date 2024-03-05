@@ -14,105 +14,102 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class menuController {
-	
+
 	private static menuController instancia;
+
 	public static menuController getInstancia() {
+		if(instancia == null) instancia = new menuController();
 		return instancia;
 	}
-	public menuController() {
-		instancia=this;
-		// TODO Auto-generated constructor stub
+
+	private menuController() {}
+
+	@FXML
+	private ResourceBundle resources;
+
+	@FXML
+	private URL location;
+
+	@FXML
+	private VBox btnInventario;
+
+	@FXML
+	private VBox btnClientes;
+
+	@FXML
+	private VBox btnVender;
+
+	@FXML
+	private BorderPane centerPane;
+
+	@FXML
+	private BorderPane principalPane;
+
+	@FXML
+	private Button btnCarro;
+
+	@FXML
+	private Button btnAyuda;
+
+	@FXML
+	void irAyudaEvent(ActionEvent event) {
+
 	}
-	
-    @FXML
-    private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	void irCarroEvent(ActionEvent event) {
 
-    @FXML
-    private VBox btnInventario;
+	}
 
-    @FXML
-    private VBox btnClientes;
+	@FXML
+	void irClientesEvent(MouseEvent event) {
+		cambiarVentana("clientes");
+		principalPane.setRight(null);
 
-    @FXML
-    private VBox btnVender;
+	}
 
-    @FXML
-    private BorderPane centerPane;
-    
-    @FXML
-    private BorderPane principalPane;
+	@FXML
+	void irInventarioEvent(MouseEvent event) {
+		cambiarVentana("inventario");
+		principalPane.setRight(null);
 
-    @FXML
-    private Button btnCarro;
+	}
 
-    @FXML
-    private Button btnAyuda;
+	@FXML
+	void irVenderEvent(MouseEvent event) {
+		cambiarVentana("vender");
+		principalPane.setRight(null);
+	}
 
-    @FXML
-    void irAyudaEvent(ActionEvent event) {
+	@FXML
+	void initialize() {
 
-    }
+	}
 
-    @FXML
-    void irCarroEvent(ActionEvent event) {
+	private void cambiarVentana(String fxmlname) {
+		try {
+			Node nodo = App.loadFXML(fxmlname);
+			setCenter(nodo);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-    }
+	public void cambiarRight(String fxmlname) {
+		try {
+			Node nodo = App.loadFXML(fxmlname);
+			setRight(nodo);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-    @FXML
-    void irClientesEvent(MouseEvent event) {
-    	cambiarVentana("clientes");
-    	principalPane.setRight(null);
+	public void setCenter(Node node) {
+		centerPane.setCenter(node);
+	}
 
-    }
+	public void setRight(Node node) {
+		principalPane.setRight(node);
+	}
 
-    @FXML
-    void irInventarioEvent(MouseEvent event) {
-    	cambiarVentana("inventario");
-    	principalPane.setRight(null);
-
-    }
-
-    @FXML
-    void irVenderEvent(MouseEvent event) {
-        cambiarVentana("vender");
-        principalPane.setRight(null);
-    }
-
-    @FXML
-    void initialize() {
-
-    }
-    
-    private void cambiarVentana(String fxmlname) { 		
-    	try { 			
-    		Node nodo = App.loadFXML(fxmlname); 			
-    		setCenter(nodo); 		
-    		} 
-    	catch (IOException e) { 			
-    		e.printStackTrace(); 		
-    		} 	
-    	} 
-    
-    public void cambiarRight(String fxmlname) { 		
-    	try { 			
-    		Node nodo = App.loadFXML(fxmlname); 			
-    		setRight(nodo); 		
-    		} 
-    	catch (IOException e) { 			
-    		e.printStackTrace(); 		
-    		} 	
-    	}
-    
-    public void setCenter(Node node){ 		
-    	centerPane.setCenter(node); 	
-    	}
-    
-    public void setRight(Node node){ 		
-    	principalPane.setRight(node); 	
-    	}
-    
-    
 }

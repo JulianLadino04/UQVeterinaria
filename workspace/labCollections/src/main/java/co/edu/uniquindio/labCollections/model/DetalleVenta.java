@@ -8,6 +8,7 @@ import java.util.Objects;
  * Contiene la cantidad del producto y un subTotal.
  */
 public class DetalleVenta implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Integer cantidad;
 	private Producto producto;
 	private Double subTotal;

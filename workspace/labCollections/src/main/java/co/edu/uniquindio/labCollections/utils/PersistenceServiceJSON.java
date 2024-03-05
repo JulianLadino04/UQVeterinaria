@@ -8,16 +8,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class PersistenceServiceJSON implements PersistenceService{
 	
 	@Override
-	public <T> T deserialize(Class<T> entity) throws Exception {
+	public <T> T deserialize(String name, Class<T> entity) throws Exception {
 		var mapper = new ObjectMapper();
-		var fileIn = new FileInputStream(PATH + entity.getSimpleName() + "_data.xml");
+		var fileIn = new FileInputStream(PATH + name + "_data.json");
 		return mapper.readValue(fileIn, entity);
 	}
 
 	@Override
-	public void serialize(Object object) throws Exception {
+	public void serialize(String name, Object object) throws Exception {
 		var mapper = new ObjectMapper();
-		var fileOut = new FileOutputStream(PATH + object.getClass().getSimpleName() + "_data.xml");
+		var fileOut = new FileOutputStream(PATH + name + "_data.json");
 		mapper.writeValue(fileOut, object);
 	}
 

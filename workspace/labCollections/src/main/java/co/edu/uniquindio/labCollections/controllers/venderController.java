@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.labCollections.model.Producto;
+import co.edu.uniquindio.labCollections.utils.UtilsFX;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -42,17 +44,25 @@ public class venderController {
 
     @FXML
     void agregarAlCarrito(ActionEvent event) {
-
+    	//TODO Aparentemente se tiene que redisenar algunas partes del modelo
     }
 
     @FXML
     void buscarEvent(ActionEvent event) {
-
+    	//TODO Esto no es necesario
     }
 
     @FXML
     void initialize() {
-
+    	UtilsFX.setAsIntegerTextfield(txtBuscar);
+    	
+    	txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+    		actualizarTabla(Long.valueOf(newValue));
+    	});
+    }
+    
+    private void actualizarTabla(Long codigo) {
+    	tablaVender.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().filtrarProductos(codigo)));
     }
 
 }

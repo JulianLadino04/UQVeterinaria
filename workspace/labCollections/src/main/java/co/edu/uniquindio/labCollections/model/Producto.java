@@ -9,6 +9,7 @@ import java.util.Objects;
  */
 public class Producto implements Comparable<Producto>, Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Integer cantidad;
 	private Long codigo;
 	private String nombre;
@@ -18,10 +19,9 @@ public class Producto implements Comparable<Producto>, Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(Integer cantidad, Long codigo, String nombre, Double precio) {
+	public Producto(Integer cantidad, String nombre, Double precio) {
 		super();
 		this.cantidad = cantidad;
-		this.codigo = codigo;
 		this.nombre = nombre;
 		this.precio = precio;
 	}
