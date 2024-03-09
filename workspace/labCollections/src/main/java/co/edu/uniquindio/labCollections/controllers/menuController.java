@@ -22,7 +22,7 @@ public class menuController {
 		return instancia;
 	}
 
-	private menuController() {}
+	public menuController() {}
 
 	@FXML
 	private ResourceBundle resources;
