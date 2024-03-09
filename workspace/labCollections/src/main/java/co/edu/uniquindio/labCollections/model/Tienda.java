@@ -122,42 +122,95 @@ public class Tienda {
 		this.proximoCodigoProducto = proximoCodigoProducto;
 	}
 
+	
+	/**
+	 * Agrega un <code>cliente<code> a la lista de clientes.
+	 *
+	 * @param cliente 
+	 */
 	public void agregarCliente(Cliente cliente) {
 		lstClientes.put(cliente.getnIdentificacion(), cliente);
 	}
-
+	
+	/**
+	 * Agrega una <code>venta<code> a la lista de ventas.
+	 *
+	 * @param venta 
+	 */
 	public void agregarVenta(Venta venta) {
 		lstVentas.add(venta);
 	}
 
+	/**
+	 * Agrega un <code>producto<code> a la lista inventario.
+	 *
+	 * @param producto
+	 */
 	public void agregarProductoInventario(Producto producto) {
 		lstInventario.add(producto);
 	}
 
+	/**
+	 * Obtiene un <code>producto<code> de la lista de productos basado en su <code>codigo<code>.
+	 *
+	 * @param codigo
+	 * @return El producto correspondiente al código proporcionado, o null si no se encuentra.
+	 */
 	public Producto obtenerProducto(String codigo) {
 		return lstProducto.get(codigo);
 	}
 
+	/**
+	 * Obtiene un <code>cliente<code> de la lista de clientes basado en su <code>nit<code>.
+	 *
+	 * @param nit
+	 * @return El cliente correspondiente al NIT proporcionado, o null si no se encuentra.
+	 */
 	public Cliente obtenerCliente(String nit) {
 		return lstClientes.get(nit);
 	}
 
+	/**
+	 * Actualiza la <code>dirección<code> del <code>Cliente<code> actual con la nueva <code>dirección<code> proporcionada.
+	 *
+	 * @param nuevaDireccion 
+	 */
 	public void actualizarDireccion(String nuevaDireccion) {
 		this.direccion = nuevaDireccion;
 	}
 
+	/**
+	 * Elimina un <code>producto<code> de la lista de productos basado en su <code>código<code>.
+	 *
+	 * @param codigo
+	 */
 	public void eliminarProducto(String codigo) {
 		lstProducto.remove(codigo);
 	}
 
+	/**
+	 * Elimina un <code>Cliente<code> de la lista de clientes basado en su <code>nit<code>.
+	 *
+	 * @param nit
+	 */
 	public void eliminarCliente(String nit) {
 		lstClientes.remove(nit);
 	}
 
+	/**
+	 * Genera un <code>código<code> único para un carrito de compras.
+	 *
+	 * @return El código único generado para un carrito de compras.
+	 */
 	private String generarCodigoCarrito() {
 		return "C" + proximoCodigoCarrito++;
 	}
 
+	/**
+	 * Genera un <code>código<code> único para un producto.
+	 *
+	 * @return El código único generado para un producto.
+	 */
 	private String generarCodigoProducto() {
 		return "P" + proximoCodigoProducto++;
 	}
@@ -167,27 +220,59 @@ public class Tienda {
 		return "Tienda [nombre=" + nombre + ", direccion=" + direccion + ", nit=" + nit + ", proximoCodigoCarrito="
 				+ proximoCodigoCarrito + ", proximoCodigoProducto=" + proximoCodigoProducto + "]";
 	}
-
+	
+	/**
+	 * Agrega un <code>producto<code> a la lista de productos y asigna un <code>codigoProducto<code> único al producto.
+	 * 
+	 * @param producto
+	 * @return codigoProducto
+	 * @author Breyner
+	 */
 	public String agregarProducto(Producto producto) {
 		String codigoProducto = generarCodigoProducto();
 		lstProducto.put(codigoProducto, producto);
 		return codigoProducto;
 	}
 
+	/**
+	 * Agrega un <code>carrito<code> a la lista de carritos de compras y asigna un <code>codigoCarrito<code> único al carrito.
+	 * 
+	 * @param carrito
+	 * @return codigoCarrito
+	 * @author Breyner
+	 */
 	public String agregarCarritoCompras(CarritoCompras carrito) {
 		String codigoCarrito = generarCodigoCarrito();
 		lstCarritoCompras.add(new CarritoCompras(codigoCarrito));
 		return codigoCarrito;
 	}
 	
+	/**
+	 * Filtra los clientes por su número de <code>identificación<code>.
+	 * 
+	 * @param identificacion
+	 * @return
+	 */
 	public List<Cliente> filtrarClientesPorCedula(String identificacion) {
 		return lstClientes.values().stream().filter(c -> c.getnIdentificacion().equals(identificacion)).toList();
 	}
 
+	/**
+	 * Filtra los productos en inventario por su <code>codigo<code>.
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public List<Producto> filtrarInventarioPorCodigo(Long codigo) {
 		return lstInventario.stream().filter(p -> p.getCodigo().equals(codigo)).toList();
 	}
 
+	/**
+	 * Filtra los productos por su <code>codigo<code>.
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public List<Producto> filtrarProductosPorCodigo(Long codigo) {
 		return lstProducto.values().stream().filter(p -> p.getCodigo().equals(codigo)).toList();
 	}
