@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import co.edu.uniquindio.App;
+import co.edu.uniquindio.labCollections.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -22,7 +22,7 @@ public class menuController {
 		return instancia;
 	}
 
-	private menuController() {}
+	public menuController() {}
 
 	@FXML
 	private ResourceBundle resources;
