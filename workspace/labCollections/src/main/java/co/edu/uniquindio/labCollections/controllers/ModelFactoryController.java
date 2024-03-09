@@ -2,7 +2,6 @@ package co.edu.uniquindio.labCollections.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
@@ -47,7 +46,6 @@ public class ModelFactoryController {
 	
 	@SuppressWarnings("unchecked")
 	private void cargarDatosIncio() {
-		this.getTienda().setLstCarritoCompras(cargarDatos("carritos", HashSet.class));
 		this.getTienda().setLstClientes(cargarDatos("clientes", HashMap.class));
 		this.getTienda().setLstInventario(cargarDatos("inventario", TreeSet.class));
 		this.getTienda().setLstProducto(cargarDatos("productos", HashMap.class));

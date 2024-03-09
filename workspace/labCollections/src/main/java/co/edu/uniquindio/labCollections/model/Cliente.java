@@ -13,9 +13,9 @@ public class Cliente implements Serializable {
 	private String nombre;
 	private String direccion;
 	private String nIdentificacion;
+	private CarritoCompras carritoCompras;
 
 	public Cliente() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cliente(String nombre, String direccion, String nIdentificacion) {
@@ -47,6 +47,14 @@ public class Cliente implements Serializable {
 
 	public void setnIdentificacion(String nIdentificacion) {
 		this.nIdentificacion = nIdentificacion;
+	}
+
+	public CarritoCompras getCarritoCompras() {
+		return carritoCompras;
+	}
+
+	public void setCarritoCompras(CarritoCompras carritoCompras) {
+		this.carritoCompras = carritoCompras;
 	}
 
 	@Override

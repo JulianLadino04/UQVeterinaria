@@ -41,7 +41,7 @@
          <center>
             <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtBuscar1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#buscarEvent" promptText="Buscar" styleClass="cajaTexto" stylesheets="@../styles/cajaTexto.css" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="txtBuscar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#buscarEvent" promptText="Buscar" styleClass="cajaTexto" stylesheets="@../styles/cajaTexto.css" HBox.hgrow="ALWAYS" />
                   <SVGPath content="M15.25 0a8.25 8.25 0 0 0-6.18 13.72L1 22.88l1.12 1 8.05-9.12A8.251 8.251 0 1 0 15.25.01V0zm0 15a6.75 6.75 0 1 1 0-13.5 6.75 6.75 0 0 1 0 13.5z" fill="#aeaeae" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="-30.0" HBox.hgrow="ALWAYS" />
                </children>
                <BorderPane.margin>
