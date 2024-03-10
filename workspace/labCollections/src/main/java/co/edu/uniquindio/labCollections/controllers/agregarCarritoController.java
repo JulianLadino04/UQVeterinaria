@@ -2,6 +2,7 @@ package co.edu.uniquindio.labCollections.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -42,10 +43,16 @@ public class agregarCarritoController {
 
     @FXML
     void agregarProductoEvent(ActionEvent event) {
-
+    	agregarProductoAction();
     }
 
-    @FXML
+    private void agregarProductoAction() {
+    	var producto = ModelFactoryController.getIntance().buscarProducto(Long.valueOf(txtCodeProducto.getText()));
+		producto.setCantidad(Integer.valueOf(txtCantidad.getText()));
+		ModelFactoryController.getIntance().agregarAlCarrito(txtIdentificacion.getText(), producto);
+	}
+
+	@FXML
     void cantidadEvent(ActionEvent event) {
 
     }

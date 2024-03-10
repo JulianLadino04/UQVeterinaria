@@ -3,6 +3,7 @@ package co.edu.uniquindio.labCollections.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -25,8 +26,15 @@ public class Venta implements Serializable {
 	public Venta(String codigo) {
 		this.codigo = codigo;
 		this.fecha = LocalDate.now();
-		calcularTotal();
 		this.lstDetalles = new HashMap<>();
+	}
+	
+	public Venta(String codigo, List<DetalleVenta> detalles) {
+		this.codigo = codigo;
+		this.fecha = LocalDate.now();
+		this.lstDetalles = new HashMap<>();
+		agregarDetalles(detalles);
+		calcularTotal();
 	}
 
 	public String getCodigo() {
@@ -112,5 +120,11 @@ public class Venta implements Serializable {
 	 */
 	public DetalleVenta eliminarDetalle(Producto producto) {
 		return lstDetalles.remove(producto);
+	}
+	
+	public void agregarDetalles(List<DetalleVenta> listaDetalles) {
+		for(DetalleVenta detalle : listaDetalles) {
+			lstDetalles.put(detalle.getProducto(), detalle);
+		}
 	}
 }
