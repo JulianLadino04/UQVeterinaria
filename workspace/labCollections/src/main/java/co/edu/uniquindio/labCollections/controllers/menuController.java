@@ -18,11 +18,10 @@ public class menuController {
 	private static menuController instancia;
 
 	public static menuController getInstancia() {
-		if(instancia == null) instancia = new menuController();
 		return instancia;
 	}
 
-	public menuController() {}
+	public menuController() {instancia = this;}
 
 	@FXML
 	private ResourceBundle resources;
@@ -83,7 +82,6 @@ public class menuController {
 
 	@FXML
 	void initialize() {
-
 	}
 
 	private void cambiarVentana(String fxmlname) {

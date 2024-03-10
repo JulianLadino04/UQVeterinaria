@@ -80,7 +80,7 @@ public class CarritoCompras implements Serializable {
 	 * @return un valor booleano que depende de si existe o no el codigo en la
 	 *         lista.
 	 */
-	public boolean elimarProducto(String codProducto) {
+	public boolean eliminarProducto(String codProducto) {
 		return lstProductos.remove(codProducto);
 	}
 

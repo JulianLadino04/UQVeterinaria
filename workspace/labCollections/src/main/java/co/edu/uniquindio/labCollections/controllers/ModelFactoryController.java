@@ -11,7 +11,7 @@ import co.edu.uniquindio.labCollections.model.Cliente;
 import co.edu.uniquindio.labCollections.model.Producto;
 import co.edu.uniquindio.labCollections.model.Tienda;
 import co.edu.uniquindio.labCollections.utils.PersistenceService;
-import co.edu.uniquindio.labCollections.utils.PersistenceServiceBinary;
+import co.edu.uniquindio.labCollections.utils.PersistenceServiceJSON;
 
 public class ModelFactoryController {
 
@@ -20,12 +20,12 @@ public class ModelFactoryController {
 	private Tienda tienda;
 
 	private ModelFactoryController() {
-		persistence = new PersistenceServiceBinary();
-		tienda = new Tienda("La tiendita", "Diagonal a la Universidad del Quindio", UUID.randomUUID().toString());
+		this.persistence = new PersistenceServiceJSON();
+		this.tienda = new Tienda("La tiendita", "Diagonal a la Universidad del Quindio", UUID.randomUUID().toString());
 		cargarDatosIncio();
 	}
 	
-	private void guardarDatos(String nombre, Object object) {
+	public void guardarDatos(String nombre, Object object) {
 		try {
 			persistence.serialize(nombre, object);
 		} catch (Exception e) {
@@ -38,7 +38,6 @@ public class ModelFactoryController {
 		try {
 			return persistence.deserialize(nombre, entity);
 		} catch (Exception e) {
-			// TODO Se debe mejorar la exception, para esto es bueno revisar que exceptions puede lanzar.
 			e.printStackTrace();
 		}
 		return null;
@@ -71,12 +70,17 @@ public class ModelFactoryController {
 	}
 
 	public void agregarCliente(Cliente cliente) {
+		System.out.println(this.getTienda());
 		this.getTienda().agregarCliente(cliente);
 		guardarDatos("clientes", this.getTienda().getLstClientes());
 	}
 
-	public Map<String, Producto> getListProductos() {
-		return this.getTienda().getLstProducto();
+	public List<Producto> getListProductos() {
+		return this.getTienda().getLstProducto().values().stream().toList();
+	}
+
+	public List<Cliente> getListClientes(){
+		return this.getTienda().getLstClientes().values().stream().toList();
 	}
 
 	public void agregarProducto(Producto producto) {
