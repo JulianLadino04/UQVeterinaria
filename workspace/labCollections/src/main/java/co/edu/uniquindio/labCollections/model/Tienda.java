@@ -22,7 +22,7 @@ public class Tienda {
 	private List<Venta> lstVentas;
 	private Set<CarritoCompras> lstCarritoCompras;
 	private Set<Producto> lstInventario;
-	private int proximoCodigoCarrito = 1;
+	private int proximoCodigoVenta = 1;
 	private int proximoCodigoProducto = 1;
 
 	public Tienda() {
@@ -105,11 +105,11 @@ public class Tienda {
 	}
 
 	public int getProximoCodigoCarrito() {
-		return proximoCodigoCarrito;
+		return proximoCodigoVenta;
 	}
 
-	public void setProximoCodigoCarrito(int proximoCodigoCarrito) {
-		this.proximoCodigoCarrito = proximoCodigoCarrito;
+	public void setProximoCodigoCarrito(int proximoCodigoVenta) {
+		this.proximoCodigoVenta = proximoCodigoVenta;
 	}
 
 	public int getProximoCodigoProducto() {
@@ -200,8 +200,8 @@ public class Tienda {
 	 *
 	 * @return El código único generado para un carrito de compras.
 	 */
-	private String generarCodigoCarrito() {
-		return "C" + proximoCodigoCarrito++;
+	private String generarCodigoVenta() {
+		return "C" + proximoCodigoVenta++;
 	}
 
 	/**
@@ -217,7 +217,7 @@ public class Tienda {
 	@Override
 	public String toString() {
 		return "Tienda [nombre=" + nombre + ", direccion=" + direccion + ", nit=" + nit + ", proximoCodigoCarrito="
-				+ proximoCodigoCarrito + ", proximoCodigoProducto=" + proximoCodigoProducto + "]";
+				+ proximoCodigoVenta + ", proximoCodigoProducto=" + proximoCodigoProducto + "]";
 	}
 	
 	/**
@@ -243,7 +243,7 @@ public class Tienda {
 	 * @author Breyner
 	 */
 	public String agregarCarritoCompras(CarritoCompras carrito) {
-		String codigoCarrito = generarCodigoCarrito();
+		String codigoCarrito = generarCodigoVenta();
 		lstCarritoCompras.add(new CarritoCompras(codigoCarrito));
 		return codigoCarrito;
 	}
@@ -281,6 +281,12 @@ public class Tienda {
 	public List<Producto> getCarritoCliente(String identificacion) {
 		return lstClientes.get(identificacion).getLstCarrito();
 	}
+	
+	public void agregarAlCarrito(String identificacion, Producto producto) {
+		lstClientes.forEach((k, v) -> {
+			if(k.equals(identificacion)) v.agregarAlCarrito(producto);
+		});
+	}
 
 	public void eliminarProductoCarrito(String identificacion, Producto producto) {
 		lstClientes.get(identificacion).sacarDelCarrito(producto);
@@ -293,5 +299,16 @@ public class Tienda {
 				if(p.equals(producto)) p.setCantidad(p.getCantidad() - producto.getCantidad());
 			}
 		});
+		List<DetalleVenta> detalles = new ArrayList<DetalleVenta>();
+		for(Producto producto : carrito) {
+			detalles.add(new DetalleVenta(producto.getCantidad(), producto));
+		}
+		Venta venta = new Venta(generarCodigoVenta(), detalles);
+		lstVentas.add(venta);
 	}
+
+	public Producto buscarProducto(Long codigo) {
+		return lstProducto.get(codigo);
+	}
+	
 }

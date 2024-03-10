@@ -3,14 +3,16 @@ package co.edu.uniquindio.labCollections.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import co.edu.uniquindio.labCollections.model.Cliente;
 import co.edu.uniquindio.labCollections.model.Producto;
 import co.edu.uniquindio.labCollections.utils.UtilsFX;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 import static java.lang.String.valueOf;
 
@@ -63,18 +65,29 @@ public class venderController {
 
     @FXML
     void initialize() {
-        UtilsFX.setAsIntegerTextfield(txtBuscar);
-        inicializarTabla();
-
-        txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
-            actualizarTabla(newValue);
-        });
+    	UtilsFX.setAsIntegerTextfield(txtBuscar);
+    	inicializarTabla();
+    	
+    	
+    	txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+    		actualizarTabla(newValue);
+    	});
     }
-
-    private void actualizarTabla(String code) {
-        tablaVender.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().filtrarProductos(Long.valueOf(code))));
-        tablaVender.refresh();
+    
+    private void actualizarTabla(String codigo) {
+    	tablaVender.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().filtrarProductos(Long.valueOf(codigo))));
+    	tablaVender.refresh();
     }
+    
+    private void inicializarTabla() {
+    	tablaVender.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().getListProductos()));
+    	
+		colNombre.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getNombre()));
+		colCantidad.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getCantidad().toString()));
+		colPrecio.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getPrecio().toString()));
+		colCodigo.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getCodigo().toString()));
+
+	}
 
     private void inicializarTabla() {
             tablaVender.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().getListProductos()));

@@ -128,4 +128,12 @@ public class ModelFactoryController {
 		
 	}
 
+	public Producto buscarProducto(Long codigo) {
+		return this.getTienda().buscarProducto(codigo);
+	}
+
+	public void agregarAlCarrito(String identificacion, Producto producto) {
+		this.getTienda().agregarAlCarrito(identificacion, producto);
+	}
+
 }
