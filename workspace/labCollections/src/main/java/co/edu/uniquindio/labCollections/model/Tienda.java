@@ -303,6 +303,7 @@ public class Tienda {
 				if(p.equals(producto)) p.setCantidad(p.getCantidad() - producto.getCantidad());
 			}
 		});
+		actualizarInventario();
 		List<DetalleVenta> detalles = new ArrayList<DetalleVenta>();
 		for(Producto producto : carrito) {
 			detalles.add(new DetalleVenta(producto.getCantidad(), producto));
