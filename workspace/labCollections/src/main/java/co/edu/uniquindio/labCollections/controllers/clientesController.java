@@ -74,7 +74,7 @@ public class clientesController {
 	
 	@FXML
     void recargarEvent(ActionEvent event) {
-
+		tablaClientes.refresh();
     }
 
 	private void actualizarTabla(String identificacion) {

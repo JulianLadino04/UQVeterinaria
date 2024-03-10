@@ -14,6 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import static java.lang.String.valueOf;
+
 public class venderController {
 
     @FXML
@@ -48,6 +50,7 @@ public class venderController {
 
     @FXML
     void agregarAlCarrito(ActionEvent event) {
+        menuController.getInstancia().cambiarRight("agregarCarrito");
     }
 
     @FXML
@@ -57,7 +60,7 @@ public class venderController {
     
 	@FXML
     void recargarEvent(ActionEvent event) {
-
+        tablaVender.refresh();
     }
 
     @FXML
@@ -86,4 +89,15 @@ public class venderController {
 
 	}
 
+    private void inicializarTabla() {
+            tablaVender.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().getListProductos()));
+            System.out.println(ModelFactoryController.getIntance().getListProductos());
+            colNombre.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getNombre()));
+            colCantidad.setCellValueFactory(e -> new ReadOnlyStringWrapper(valueOf(e.getValue().getCantidad())));
+            colPrecio.setCellValueFactory(e -> new ReadOnlyStringWrapper(valueOf(e.getValue().getPrecio())));
+            colCodigo.setCellValueFactory(e -> new ReadOnlyStringWrapper(valueOf(e.getValue().getCodigo())));
+
+
+            tablaVender.refresh();
+    }
 }
