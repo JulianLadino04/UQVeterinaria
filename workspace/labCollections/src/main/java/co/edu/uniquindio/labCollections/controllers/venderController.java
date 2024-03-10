@@ -3,15 +3,13 @@ package co.edu.uniquindio.labCollections.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.labCollections.model.Cliente;
 import co.edu.uniquindio.labCollections.model.Producto;
 import co.edu.uniquindio.labCollections.utils.UtilsFX;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class venderController {
 
@@ -44,7 +42,6 @@ public class venderController {
 
     @FXML
     void agregarAlCarrito(ActionEvent event) {
-    	//TODO Aparentemente se tiene que redisenar algunas partes del modelo
     }
 
     @FXML
