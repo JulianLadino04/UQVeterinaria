@@ -11,7 +11,9 @@ import co.edu.uniquindio.labCollections.model.Cliente;
 import co.edu.uniquindio.labCollections.model.Producto;
 import co.edu.uniquindio.labCollections.model.Tienda;
 import co.edu.uniquindio.labCollections.utils.PersistenceService;
+import co.edu.uniquindio.labCollections.utils.PersistenceServiceBinary;
 import co.edu.uniquindio.labCollections.utils.PersistenceServiceJSON;
+import co.edu.uniquindio.labCollections.utils.PersistenceServiceXML;
 
 public class ModelFactoryController {
 
@@ -20,7 +22,7 @@ public class ModelFactoryController {
 	private Tienda tienda;
 
 	private ModelFactoryController() {
-		this.persistence = new PersistenceServiceJSON();
+		this.persistence = new PersistenceServiceBinary();
 		this.tienda = new Tienda("La tiendita", "Diagonal a la Universidad del Quindio", UUID.randomUUID().toString());
 		cargarDatosIncio();
 	}
