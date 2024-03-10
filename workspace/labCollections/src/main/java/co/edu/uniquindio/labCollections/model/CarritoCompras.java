@@ -14,7 +14,7 @@ public class CarritoCompras implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String codigo;
-	private Set<String> lstProductos;
+	private Set<Producto> lstProductos;
 
 	public CarritoCompras() {
 	}
@@ -32,11 +32,11 @@ public class CarritoCompras implements Serializable {
 		this.codigo = codigo;
 	}
 
-	public Set<String> getLstProductos() {
+	public Set<Producto> getLstProductos() {
 		return lstProductos;
 	}
 
-	public void setLstProductos(Set<String> lstProductos) {
+	public void setLstProductos(Set<Producto> lstProductos) {
 		this.lstProductos = lstProductos;
 	}
 
@@ -59,7 +59,7 @@ public class CarritoCompras implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CarritoCompras [codigo=" + codigo + ", lstProductos=" + lstProductos + "]";
+		return "CarritoCompras [codigo=" + codigo.toString() + ", lstProductos=" + lstProductos + "]";
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class CarritoCompras implements Serializable {
 	 * @return un valor booleano que depende de si ya existe o no el codigo en la
 	 *         lista.
 	 */
-	public boolean agregarProducto(String codProducto) {
+	public boolean agregarProducto(Producto codProducto) {
 		return lstProductos.add(codProducto);
 	}
 
@@ -80,7 +80,7 @@ public class CarritoCompras implements Serializable {
 	 * @return un valor booleano que depende de si existe o no el codigo en la
 	 *         lista.
 	 */
-	public boolean eliminarProducto(String codProducto) {
+	public boolean eliminarProducto(Producto codProducto) {
 		return lstProductos.remove(codProducto);
 	}
 
