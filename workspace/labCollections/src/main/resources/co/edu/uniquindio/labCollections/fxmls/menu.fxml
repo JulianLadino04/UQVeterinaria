@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="principalPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" styleClass="fondo" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.labCollections.controllers.menuController">
+<BorderPane fx:id="principalPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" styleClass="fondo" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.labCollections.controllers.menuController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="80.0" style="-fx-background-color: #0D8ECB; -fx-background-radius: 40;" stylesheets="@../styles/fondo.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -85,6 +85,26 @@
                            </graphic>
                         </Button>
                         <Label alignment="CENTER" text="Vender" textFill="WHITE">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </VBox>
+                  <VBox fx:id="btnFinalizar" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#irFinalizarEvent" spacing="1.0">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <SVGPath content="M4 12L10 18L20 6" fill="#0d8ecb" stroke="WHITE" strokeWidth="4.0" />
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER" text="Finalizar" textFill="WHITE">
                            <font>
                               <Font size="12.0" />
                            </font>
