@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.UUID;
 
+import co.edu.uniquindio.labCollections.model.CarritoCompras;
 import co.edu.uniquindio.labCollections.model.Cliente;
 import co.edu.uniquindio.labCollections.model.Producto;
 import co.edu.uniquindio.labCollections.model.Tienda;
@@ -72,6 +73,11 @@ public class ModelFactoryController {
 		System.out.println(this.getTienda());
 		this.getTienda().agregarCliente(cliente);
 		guardarDatos("clientes", this.getTienda().getLstClientes());
+	}
+	public void agregarCarrito(CarritoCompras carrito) {
+		System.out.println(this.getTienda());
+		this.getTienda().agregarCarritoCompras(carrito);
+		guardarDatos("carritos", this.getTienda().getLstCarritoCompras());
 	}
 
 	public List<Producto> getListProductos() {
