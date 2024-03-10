@@ -85,6 +85,10 @@ public class ModelFactoryController {
 	public List<Producto> getListInventario(){
 		return this.getTienda().getLstInventario().stream().toList();
 	}
+	
+	public List<Producto> getCarritoCliente(String identificacion){
+		return this.getTienda().getCarritoCliente(identificacion);
+	}
 
 	public void agregarProducto(Producto producto) {
 		this.getTienda().agregarProducto(producto);
@@ -103,6 +107,19 @@ public class ModelFactoryController {
 	
 	public List<Producto> filtrarProductos(Long codigo){
 		return this.getTienda().filtrarProductosPorCodigo(codigo);
+	}
+	
+	public List<Producto> buscarCarritoDelCliente(String identificacion){
+		return this.getTienda().getCarritoCliente(identificacion);
+	}
+	
+	public void eliminarProductoCarrito(String identificacion, Producto producto) {
+		this.getTienda().eliminarProductoCarrito(identificacion, producto);
+	}
+
+	public void finalizarVenta(String identificacion) {
+		this.getTienda().finalizarComprar(identificacion);
+		
 	}
 
 }

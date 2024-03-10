@@ -2,7 +2,6 @@ package co.edu.uniquindio.labCollections.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -37,7 +36,6 @@ public class Tienda {
 		this.lstProducto = new HashMap<>();
 		this.lstClientes = new HashMap<>();
 		this.lstVentas = new ArrayList<>();
-		this.lstCarritoCompras = new HashSet<>();
 		this.lstInventario = new TreeSet<>();
 
 	}
@@ -280,4 +278,20 @@ public class Tienda {
 		return lstProducto.values().stream().filter(p -> p.getCodigo().equals(codigo)).toList();
 	}
 
+	public List<Producto> getCarritoCliente(String identificacion) {
+		return lstClientes.get(identificacion).getLstCarrito();
+	}
+
+	public void eliminarProductoCarrito(String identificacion, Producto producto) {
+		lstClientes.get(identificacion).sacarDelCarrito(producto);
+	}
+
+	public void finalizarComprar(String identificacion) {
+		List<Producto> carrito = lstClientes.get(identificacion).vaciarCarrito();
+		lstProducto.forEach((c, p) -> {
+			for(Producto producto : carrito) {
+				if(p.equals(producto)) p.setCantidad(p.getCantidad() - producto.getCantidad());
+			}
+		});
+	}
 }

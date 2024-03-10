@@ -1,6 +1,7 @@
 package co.edu.uniquindio.labCollections.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -77,6 +78,26 @@ public class Cliente implements Serializable {
 	@Override
 	public String toString() {
 		return "Cliente [nombre=" + nombre + ", direccion=" + direccion + ", nIdentificacion=" + nIdentificacion + "]";
+	}
+	
+	public void agregarAlCarrito(Producto producto) {
+		carritoCompras.agregarProducto(producto);
+	}
+	
+	public void sacarDelCarrito(Producto producto) {
+		carritoCompras.eliminarProducto(producto);
+	}
+	
+	public List<Producto> getLstCarrito(){
+		return carritoCompras.getLstProductos().stream().toList();
+	}
+	
+	public List<Producto> vaciarCarrito(){
+		List<Producto> carrito = getLstCarrito();
+		var nuevoCarro = new CarritoCompras();
+		nuevoCarro.setCodigo(nIdentificacion);
+		setCarritoCompras(nuevoCarro);
+		return carrito;
 	}
 	
 	
