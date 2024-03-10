@@ -37,6 +37,9 @@ public class menuController {
 
 	@FXML
 	private VBox btnVender;
+	
+	@FXML
+	private VBox btnFinalizar;
 
 	@FXML
 	private BorderPane centerPane;
@@ -77,6 +80,12 @@ public class menuController {
 	@FXML
 	void irVenderEvent(MouseEvent event) {
 		cambiarVentana("vender");
+		principalPane.setRight(null);
+	}
+	
+	@FXML
+	void irFinalizarEvent(MouseEvent event) {
+		cambiarVentana("finalizarVenta");
 		principalPane.setRight(null);
 	}
 
