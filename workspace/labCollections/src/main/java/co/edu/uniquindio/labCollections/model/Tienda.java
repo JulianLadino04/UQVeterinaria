@@ -300,7 +300,7 @@ public class Tienda {
 		List<Producto> carrito = lstClientes.get(identificacion).vaciarCarrito();
 		lstProducto.forEach((c, p) -> {
 			for(Producto producto : carrito) {
-				if(p.equals(producto)) p.setCantidad(p.getCantidad() - producto.getCantidad());
+				if(p.equals(producto)) p.setCantidad(p.getCantidad().intValue() - producto.getCantidad().intValue());
 			}
 		});
 		actualizarInventario();

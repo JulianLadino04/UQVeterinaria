@@ -95,8 +95,7 @@ public class Cliente implements Serializable {
 	
 	public List<Producto> vaciarCarrito(){
 		List<Producto> carrito = getLstCarrito();
-		var nuevoCarro = new CarritoCompras();
-		nuevoCarro.setCodigo(nIdentificacion);
+		var nuevoCarro = new CarritoCompras(nIdentificacion);
 		setCarritoCompras(nuevoCarro);
 		return carrito;
 	}

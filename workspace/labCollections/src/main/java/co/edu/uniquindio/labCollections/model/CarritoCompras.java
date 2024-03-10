@@ -16,7 +16,9 @@ public class CarritoCompras implements Serializable {
 	private String codigo;
 	private Set<Producto> lstProductos;
 
-	public CarritoCompras() {}
+	public CarritoCompras() {
+		this.lstProductos = new HashSet<>();
+	}
 
 	public CarritoCompras(String codigo) {
 		this.codigo = codigo;
