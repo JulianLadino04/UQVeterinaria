@@ -29,14 +29,23 @@
       </Separator>
       <BorderPane>
          <right>
-            <Button fx:id="btnAgregarProducto" alignment="CENTER" mnemonicParsing="false" onAction="#irAgregarProductoEvent" prefHeight="39.0" prefWidth="128.0" style="-fx-background-color: #0D8ECB;" styleClass="botonLibre" stylesheets="@../styles/boton.css" text="Producto" BorderPane.alignment="CENTER">
-               <graphic>
-                  <SVGPath content="M12 4a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2h-6v6a1 1 0 1 1-2 0v-6H5a1 1 0 1 1 0-2h6V5a1 1 0 0 1 1-1z" fill="#f5f5f5" />
-               </graphic>
+            <HBox spacing="5.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
-            </Button>
+               <children>
+                  <Button fx:id="btnAgregarProducto" alignment="CENTER" mnemonicParsing="false" onAction="#irAgregarProductoEvent" prefHeight="39.0" prefWidth="128.0" style="-fx-background-color: #0D8ECB;" styleClass="botonLibre" stylesheets="@../styles/boton.css" text="Producto">
+                     <graphic>
+                        <SVGPath content="M12 4a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2h-6v6a1 1 0 1 1-2 0v-6H5a1 1 0 1 1 0-2h6V5a1 1 0 0 1 1-1z" fill="#f5f5f5" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRecargar" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#recargarEvent" style="-fx-background-color: #0D8ECB;" styleClass="botonLibre" stylesheets="@../styles/boton.css">
+                     <graphic>
+                        <SVGPath content="M5,12A7,7,0,0,1,16.89,7H14a1,1,0,0,0,0,2h5.08A1,1,0,0,0,20,8V3a1,1,0,0,0-2,0V5.32A9,9,0,0,0,3,12a1,1,0,0,0,2,0Z M20,11a1,1,0,0,0-1,1A7,7,0,0,1,7.11,17H10a1,1,0,0,0,0-2H4.92A1,1,0,0,0,4,16v5a1,1,0,0,0,2,0V18.68A9,9,0,0,0,21,12,1,1,0,0,0,20,11Z" fill="#f5f5f5" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
          </right>
          <center>
             <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">

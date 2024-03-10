@@ -36,6 +36,9 @@ public class clientesController {
 
 	@FXML
 	private Button btnAgregarCliente;
+	
+    @FXML
+    private Button btnRecargar;
 
 	@FXML
 	private TableView<Cliente> tablaClientes;
@@ -68,6 +71,11 @@ public class clientesController {
 			actualizarTabla(newValue);
 		});
 	}
+	
+	@FXML
+    void recargarEvent(ActionEvent event) {
+
+    }
 
 	private void actualizarTabla(String identificacion) {
 		tablaClientes.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().filtrarClientes(identificacion)));

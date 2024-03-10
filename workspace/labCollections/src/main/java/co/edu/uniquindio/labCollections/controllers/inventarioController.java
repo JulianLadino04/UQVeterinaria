@@ -31,7 +31,9 @@ public class inventarioController {
 
     @FXML
     private Button btnAgregarProducto;
-    
+
+    @FXML
+    private Button btnRecargar;
 
     @FXML
     private TableView<Producto> tablaInventario;
@@ -51,6 +53,11 @@ public class inventarioController {
     @FXML
     void buscarEvent(ActionEvent event) {
     	//TODO Esto no es necesario
+    }
+    
+	@FXML
+    void recargarEvent(ActionEvent event) {
+
     }
 
     @FXML

@@ -25,6 +25,9 @@ public class venderController {
     private Button btnAgregarCarrito;
 
     @FXML
+    private Button btnRecargar;
+
+    @FXML
     private TableColumn<Producto, String> colCantidad;
 
     @FXML
@@ -50,6 +53,11 @@ public class venderController {
     @FXML
     void buscarEvent(ActionEvent event) {
     	//TODO Esto no es necesario
+    }
+    
+	@FXML
+    void recargarEvent(ActionEvent event) {
+
     }
 
     @FXML
