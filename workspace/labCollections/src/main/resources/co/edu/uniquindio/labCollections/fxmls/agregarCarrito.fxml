@@ -50,7 +50,7 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </StackPane>
-            <Button fx:id="btnAgregarCliente" mnemonicParsing="false" onAction="#agregarCarritoEvent" styleClass="boton" stylesheets="@../styles/boton.css" text="Agregar" />
+            <Button fx:id="btnAgregarCliente" mnemonicParsing="false" onAction="#agregarProductoEvent" styleClass="boton" stylesheets="@../styles/boton.css" text="Agregar" />
          </children>
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />

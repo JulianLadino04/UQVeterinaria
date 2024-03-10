@@ -50,6 +50,13 @@ public class ModelFactoryController {
 		this.getTienda().setLstProducto(cargarDatos("productos", HashMap.class));
 		this.getTienda().setLstVentas(cargarDatos("ventas", ArrayList.class));
 	}
+	
+	private void reiniciarDatos() {
+		guardarDatos("clientes", this.getTienda().getLstClientes());
+		guardarDatos("inventario", this.getTienda().getLstInventario());
+		guardarDatos("productos", this.getTienda().getLstProducto());
+		guardarDatos("ventas", this.getTienda().getLstVentas());
+	}
 
 	public static ModelFactoryController getIntance() {
 		if (instance == null)
@@ -74,11 +81,11 @@ public class ModelFactoryController {
 		this.getTienda().agregarCliente(cliente);
 		guardarDatos("clientes", this.getTienda().getLstClientes());
 	}
-	public void agregarCarrito(CarritoCompras carrito) {
-		System.out.println(this.getTienda());
-		this.getTienda().agregarCarritoCompras(carrito);
-		guardarDatos("carritos", this.getTienda().getLstCarritoCompras());
-	}
+//	public void agregarCarrito(CarritoCompras carrito) {
+//		System.out.println(this.getTienda());
+//		this.getTienda().agregarCarritoCompras(carrito);
+//		guardarDatos("carritos", this.getTienda().getLstCarritoCompras());
+//	}
 
 	public List<Producto> getListProductos() {
 		return this.getTienda().getLstProducto().values().stream().toList();
@@ -98,6 +105,7 @@ public class ModelFactoryController {
 
 	public void agregarProducto(Producto producto) {
 		this.getTienda().agregarProducto(producto);
+		
 		//TODO Se debe revisar los metodos de agregacion de productos, recordar que se deben agregar al inventario.
 		guardarDatos("productos", this.getTienda().getLstProducto());
 		guardarDatos("inventario", this.getTienda().getLstInventario());

@@ -24,6 +24,7 @@ public class Cliente implements Serializable {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.nIdentificacion = nIdentificacion;
+		this.carritoCompras = new CarritoCompras(nIdentificacion);
 	}
 
 	public String getNombre() {

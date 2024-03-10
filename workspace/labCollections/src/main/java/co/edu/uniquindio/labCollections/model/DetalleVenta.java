@@ -11,7 +11,7 @@ public class DetalleVenta implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer cantidad;
 	private Producto producto;
-	private Double subTotal;
+	private Double subTotal = 0d;
 
 	public DetalleVenta() {
 		// TODO Auto-generated constructor stub

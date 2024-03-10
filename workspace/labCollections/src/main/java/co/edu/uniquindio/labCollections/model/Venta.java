@@ -16,7 +16,7 @@ public class Venta implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String codigo;
 	private LocalDate fecha;
-	private Double total;
+	private Double total = 0d;
 	private Map<Producto, DetalleVenta> lstDetalles;
 
 	public Venta() {

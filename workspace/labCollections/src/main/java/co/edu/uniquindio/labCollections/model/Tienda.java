@@ -231,8 +231,12 @@ public class Tienda {
 		Long codigoProducto = generarCodigoProducto();
 		producto.setCodigo(codigoProducto);
 		lstProducto.put(producto.getCodigo(), producto);
-		lstInventario.add(producto);
+		actualizarInventario();
 		return codigoProducto;
+	}
+	
+	public void actualizarInventario() {
+		lstInventario = new TreeSet<Producto>(lstProducto.values());
 	}
 
 	/**

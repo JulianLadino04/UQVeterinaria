@@ -57,10 +57,15 @@ public class inventarioController {
     
 	@FXML
     void recargarEvent(ActionEvent event) {
-
+		recargarAction();
     }
 
-    @FXML
+    private void recargarAction() {
+    	tablaInventario.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().getListInventario()));
+    	tablaInventario.refresh();
+	}
+
+	@FXML
     void irAgregarProductoEvent(ActionEvent event) {
     	//TODO Revisen este codigo por si lo necesitan, de otra manera borrenlo. ElJuancho
     	/*
