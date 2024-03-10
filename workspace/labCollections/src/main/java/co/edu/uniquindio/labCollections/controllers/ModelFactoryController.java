@@ -3,7 +3,6 @@ package co.edu.uniquindio.labCollections.controllers;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.TreeSet;
 import java.util.UUID;
 
@@ -12,8 +11,6 @@ import co.edu.uniquindio.labCollections.model.Producto;
 import co.edu.uniquindio.labCollections.model.Tienda;
 import co.edu.uniquindio.labCollections.utils.PersistenceService;
 import co.edu.uniquindio.labCollections.utils.PersistenceServiceBinary;
-import co.edu.uniquindio.labCollections.utils.PersistenceServiceJSON;
-import co.edu.uniquindio.labCollections.utils.PersistenceServiceXML;
 
 public class ModelFactoryController {
 
@@ -84,11 +81,16 @@ public class ModelFactoryController {
 	public List<Cliente> getListClientes(){
 		return this.getTienda().getLstClientes().values().stream().toList();
 	}
+	
+	public List<Producto> getListInventario(){
+		return this.getTienda().getLstInventario().stream().toList();
+	}
 
 	public void agregarProducto(Producto producto) {
 		this.getTienda().agregarProducto(producto);
 		//TODO Se debe revisar los metodos de agregacion de productos, recordar que se deben agregar al inventario.
 		guardarDatos("productos", this.getTienda().getLstProducto());
+		guardarDatos("inventario", this.getTienda().getLstInventario());
 	}
 	
 	public List<Cliente> filtrarClientes(String identificacion) {

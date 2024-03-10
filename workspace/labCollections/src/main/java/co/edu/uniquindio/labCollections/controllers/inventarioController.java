@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import co.edu.uniquindio.labCollections.model.Producto;
 import co.edu.uniquindio.labCollections.utils.UtilsFX;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,6 +80,7 @@ public class inventarioController {
     @FXML
     void initialize() {
     	UtilsFX.setAsIntegerTextfield(txtBuscar);
+    	inicializarTabla();
     	
     	txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
     		actualizarTabla(Long.valueOf(newValue));
@@ -87,6 +89,17 @@ public class inventarioController {
 
 	private void actualizarTabla(Long codigo) {
 		tablaInventario.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().filtrarInventario(codigo)));
+		tablaInventario.refresh();
+	}
+	
+	private void inicializarTabla() {
+		tablaInventario.setItems(FXCollections.observableArrayList(ModelFactoryController.getIntance().getListInventario()));
+		
+		colNombre.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getNombre()));
+		colCantidad.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getCantidad().toString()));
+		colPrecio.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getPrecio().toString()));
+		colCodigo.setCellValueFactory(e -> new ReadOnlyStringWrapper(e.getValue().getCodigo().toString()));
+		
 		tablaInventario.refresh();
 	}
 }
