@@ -18,7 +18,7 @@ public class Tienda {
 	private String nombre;
 	private String direccion;
 	private String nit;
-	private Map<String, Producto> lstProducto;
+	private Map<Long, Producto> lstProducto;
 	private Map<String, Cliente> lstClientes;
 	private List<Venta> lstVentas;
 	private Set<CarritoCompras> lstCarritoCompras;
@@ -66,11 +66,11 @@ public class Tienda {
 		this.nit = nit;
 	}
 
-	public Map<String, Producto> getLstProducto() {
+	public Map<Long, Producto> getLstProducto() {
 		return lstProducto;
 	}
 
-	public void setLstProducto(Map<String, Producto> lstProducto) {
+	public void setLstProducto(Map<Long, Producto> lstProducto) {
 		this.lstProducto = lstProducto;
 	}
 
@@ -211,8 +211,9 @@ public class Tienda {
 	 *
 	 * @return El código único generado para un producto.
 	 */
-	private String generarCodigoProducto() {
-		return "P" + proximoCodigoProducto++;
+	private Long generarCodigoProducto() {
+		proximoCodigoProducto+= 1;
+		return Long.valueOf(proximoCodigoProducto);
 	}
 
 	@Override
@@ -228,9 +229,11 @@ public class Tienda {
 	 * @return codigoProducto
 	 * @author Breyner
 	 */
-	public String agregarProducto(Producto producto) {
-		String codigoProducto = generarCodigoProducto();
-		lstProducto.put(codigoProducto, producto);
+	public Long agregarProducto(Producto producto) {
+		Long codigoProducto = generarCodigoProducto();
+		producto.setCodigo(codigoProducto);
+		lstProducto.put(producto.getCodigo(), producto);
+		lstInventario.add(producto);
 		return codigoProducto;
 	}
 
