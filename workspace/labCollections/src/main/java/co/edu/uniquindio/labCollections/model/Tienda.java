@@ -26,7 +26,6 @@ public class Tienda {
 	private int proximoCodigoProducto = 1;
 
 	public Tienda() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Tienda(String nombre, String direccion, String nit) {

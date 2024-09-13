@@ -9,10 +9,7 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class FinalizarVentaController {
 
@@ -64,6 +61,7 @@ public class FinalizarVentaController {
 	@FXML
 	void finalizarEvent(ActionEvent event) {
 		ModelFactoryController.getIntance().finalizarVenta(txtBuscar.getText());
+		new Alert(Alert.AlertType.CONFIRMATION, "Venta finalizada").show();
 	}
 
 	@FXML
